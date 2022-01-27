@@ -89,7 +89,7 @@ struct LoginView: View {
                     
                     Button(action: {
                         if userAuth.isSigningIn {
-                            self.userAuth.signIn(email: userAuth.email, contrasena: userAuth.contrasena)
+                            LoggedInView()
                         } else {
                             print("Error, try again!")
                         }
