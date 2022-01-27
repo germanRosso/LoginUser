@@ -27,6 +27,7 @@
 		DEADB1EF27A330AF00A59952 /* LoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInView.swift; sourceTree = "<group>"; };
 		DEADB1F127A330BC00A59952 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		DEADB1F327A330C400A59952 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		DEADB1F827A33F0500A59952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +62,11 @@
 			children = (
 				DEADB1DF27A32F8E00A59952 /* LoginUserApp.swift */,
 				DEADB1E127A32F8E00A59952 /* ContentView.swift */,
-				DEADB1ED27A330A400A59952 /* LoginView.swift */,
-				DEADB1EF27A330AF00A59952 /* LoggedInView.swift */,
-				DEADB1F327A330C400A59952 /* LoginViewModel.swift */,
-				DEADB1F127A330BC00A59952 /* LoginModel.swift */,
+				DEADB1F727A339B500A59952 /* Model */,
+				DEADB1F527A3399A00A59952 /* View */,
+				DEADB1F627A339A300A59952 /* ViewModel */,
 				DEADB1E327A32FA800A59952 /* Assets.xcassets */,
+				DEADB1F827A33F0500A59952 /* Info.plist */,
 				DEADB1E527A32FA800A59952 /* Preview Content */,
 			);
 			path = LoginUser;
@@ -77,6 +78,31 @@
 				DEADB1E627A32FA800A59952 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DEADB1F527A3399A00A59952 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEADB1ED27A330A400A59952 /* LoginView.swift */,
+				DEADB1EF27A330AF00A59952 /* LoggedInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEADB1F627A339A300A59952 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DEADB1F327A330C400A59952 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DEADB1F727A339B500A59952 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEADB1F127A330BC00A59952 /* LoginModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +313,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LoginUser/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoginUser/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +342,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LoginUser/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LoginUser/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
