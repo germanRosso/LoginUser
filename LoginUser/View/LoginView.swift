@@ -88,10 +88,11 @@ struct LoginView: View {
                     .padding()
                     
                     Button(action: {
-                        if userAuth.isSigningIn {
+                        userAuth.signIn()
+                        if userAuth.isSignedIn {
                             LoggedInView()
                         } else {
-                            print("Error, try again!")
+                            print("Error!")
                         }
                     }) {
                         Text("Siguiente")

@@ -7,19 +7,26 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class LoginViewModel: ObservableObject {
     
-    @Published var email : String = ""
-    @Published var contrasena : String = ""
+    @State var email : String
+    @State var contrasena : String
     @Published var hasError = false
-    @Published var isSigningIn = false
+    @Published var isSignedIn = false
     
     var canSignIn: Bool {
         !email.isEmpty && !contrasena.isEmpty
     }
     
-    func signIn(email: String, contrasena: String) {
+    init(email: String, contrasena: String) {
+        self.email = email
+        self.contrasena = contrasena
+        signIn()
+    }
+    
+    func signIn() {
         guard !email.isEmpty && !contrasena.isEmpty else {
             return
         }
@@ -33,7 +40,7 @@ final class LoginViewModel: ObservableObject {
         request.addValue("iOS 11.2.2", forHTTPHeaderField: "VersionSO")
         request.addValue("1.0.1", forHTTPHeaderField: "VersionAPP")
         
-        isSigningIn.toggle()
+        isSignedIn.toggle()
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
@@ -49,7 +56,7 @@ final class LoginViewModel: ObservableObject {
                         print("Unable to Decode Response \(error)")
                     }
                 }
-                self.isSigningIn.toggle()
+                self.isSignedIn.toggle()
             }
         }.resume()
     }

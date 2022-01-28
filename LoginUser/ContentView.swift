@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var showLoginView: Bool
+    @State var email : String = ""
+    @State var contrasena : String = ""
     
     var body: some View {
         ZStack {
@@ -47,7 +49,7 @@ struct ContentView: View {
                         .edgesIgnoringSafeArea(.all)
                         .frame(maxWidth: .infinity, maxHeight: 200)
                         .offset(y: -300)
-                    LoginView(showLoginView: $showLoginView, userAuth: LoginViewModel())
+                    LoginView(showLoginView: $showLoginView, userAuth: LoginViewModel(email: email, contrasena: contrasena))
                 }
             }
         }
