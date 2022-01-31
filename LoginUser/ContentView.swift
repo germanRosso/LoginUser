@@ -49,7 +49,7 @@ struct ContentView: View {
                         .edgesIgnoringSafeArea(.all)
                         .frame(maxWidth: .infinity, maxHeight: 200)
                         .offset(y: -300)
-                    LoginView(showLoginView: $showLoginView, userAuth: LoginViewModel(email: email, contrasena: contrasena))
+                    LoginView(showLoginView: $showLoginView, userAuth: LoginViewModel())
                 }
             }
         }

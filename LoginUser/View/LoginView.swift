@@ -12,7 +12,9 @@ struct LoginView: View {
     @Binding var showLoginView: Bool
     @ObservedObject var userAuth: LoginViewModel
     @State private var checked = false
-    
+//    @State var email: String = ""
+//    @State var contrasena: String = ""
+
     var body: some View {
         ZStack {
             VStack {
@@ -49,7 +51,7 @@ struct LoginView: View {
                             .padding(.top)
                         
                         VStack {
-                            SecureField("", text: $userAuth.contrasena)
+                            TextField("", text: $userAuth.contrasena)
                                 .keyboardType(UIKeyboardType.default)
                                 .hideKeyboardWhenTappedAround()
                                 .autocapitalization(.none)
@@ -89,11 +91,6 @@ struct LoginView: View {
                     
                     Button(action: {
                         userAuth.signIn()
-                        if userAuth.isSignedIn {
-                            LoggedInView()
-                        } else {
-                            print("Error!")
-                        }
                     }) {
                         Text("Siguiente")
                             .font(.subheadline)
@@ -108,6 +105,7 @@ struct LoginView: View {
 //                    SiguienteButton()
 //                        .padding(.bottom)
                     
+                    
                     CreateAccount()
                 }
             }
@@ -115,6 +113,11 @@ struct LoginView: View {
             .frame(width: UIScreen.main.bounds.width - 50, height: 480, alignment: .center)
             .background(Color.white)
             .border(Color.gray.opacity(0.3))
+            
+            if userAuth.isSignedIn {
+                LoggedInView()
+            }
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)

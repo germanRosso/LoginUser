@@ -15,6 +15,8 @@
 		DEADB1F027A330AF00A59952 /* LoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1EF27A330AF00A59952 /* LoggedInView.swift */; };
 		DEADB1F227A330BC00A59952 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1F127A330BC00A59952 /* LoginModel.swift */; };
 		DEADB1F427A330C400A59952 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1F327A330C400A59952 /* LoginViewModel.swift */; };
+		DEADB1FB27A41F9300A59952 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DEADB1FA27A41F9300A59952 /* Alamofire */; };
+		DEADB1FE27A41FC300A59952 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DEADB1FD27A41FC300A59952 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEADB1FE27A41FC300A59952 /* SwiftyJSON in Frameworks */,
+				DEADB1FB27A41F9300A59952 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +125,10 @@
 			dependencies = (
 			);
 			name = LoginUser;
+			packageProductDependencies = (
+				DEADB1FA27A41F9300A59952 /* Alamofire */,
+				DEADB1FD27A41FC300A59952 /* SwiftyJSON */,
+			);
 			productName = LoginUser;
 			productReference = DEADB1DC27A32F8D00A59952 /* LoginUser.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +157,10 @@
 				Base,
 			);
 			mainGroup = DEADB1D327A32F8C00A59952;
+			packageReferences = (
+				DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DEADB1FC27A41FC300A59952 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = DEADB1DD27A32F8D00A59952 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -383,6 +395,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DEADB1FC27A41FC300A59952 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEADB1FA27A41F9300A59952 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DEADB1FD27A41FC300A59952 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEADB1FC27A41FC300A59952 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DEADB1D427A32F8C00A59952 /* Project object */;
 }
