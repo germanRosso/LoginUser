@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LoggedInView: View {
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            Text("Hello, World!")
+        }
+        .background(Color.white)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

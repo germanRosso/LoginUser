@@ -36,11 +36,11 @@ class LoginViewModel: ObservableObject {
         let headers: HTTPHeaders = [
             "Content-Type":"application/json", "User":"Dermacycle2018", "Password":"7c4e22f4-6a6c-48de-b1c9-075979233ce5", "Dispositivo":"iPhone 7", "VersionSO":"iOS 11.2.2", "VersionAPP":"1.0.1"
         ]
-        
-        AF.request("\(url)", method: .post, parameters: parameters, headers: headers).responseString { response in
-            print(response)
-        }
-        AF.request("\(url)", method: .post, parameters: parameters, headers: headers).responseData { (data) in
+//        
+//        AF.request("\(url)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseString { response in
+//            print(response)
+//        }
+        AF.request("\(url)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData { (data) in
 
             
             let json = try! JSON(data: data.data!)
