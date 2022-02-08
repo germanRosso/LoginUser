@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct LoginView: View {
     
-    @Binding var showLoginView: Bool
     @ObservedObject var userAuth: LoginViewModel
+    @Binding var showLoginView: Bool
     @State private var checked = false
-//    @State var email: String = ""
-//    @State var contrasena: String = ""
-
+    @Binding var showForgotPassword: Bool
+    @Binding var showSignUp: Bool
+    @State var alertLogin: AlertLogin?
+    
     var body: some View {
         ZStack {
             VStack {
@@ -25,44 +27,17 @@ struct LoginView: View {
                 VStack {
                     HeaderLogin()
                     
-//                    UserSection()
                     VStack {
-                        Text("EMAIL")
-                            .font(.subheadline)
-                            .fontWeight(.regular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        ReusableTextField(titulo: "EMAIL", textField: $userAuth.email, keyboardTipe: .emailAddress, isSecure: false)
                         
+                        ReusableTextField(titulo: "CONTRASEÑA", textField: $userAuth.actualPassword, keyboardTipe: .default, isSecure: true)
                         
-                        VStack {
-                            TextField("", text: $userAuth.email)
-                                .keyboardType(UIKeyboardType.emailAddress)
-                                .hideKeyboardWhenTappedAround()
-                                .autocapitalization(.none)
-                            Rectangle()
-                                .frame(height: 1)
-                                .background(Color.gray.opacity(0.5))
-                            //                    .padding(.top)
-                        }
-                        
-                        Text("CONTRASEÑA")
-                            .font(.subheadline)
-                            .fontWeight(.regular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.top)
-                        
-                        VStack {
-                            TextField("", text: $userAuth.contrasena)
-                                .keyboardType(UIKeyboardType.default)
-                                .hideKeyboardWhenTappedAround()
-                                .autocapitalization(.none)
-                            Rectangle()
-                                .frame(height: 1)
-                                .background(Color.gray.opacity(0.5))
-                            //                    .padding(.top)
-                        }
-                        
-                        
-                        Button {} label: {
+                        Button {
+                            withAnimation {
+                                showForgotPassword.toggle()
+                                showLoginView.toggle()
+                            }
+                        } label: {
                             Text("Olvidé mi contraseña")
                                 .font(.caption)
                                 .fontWeight(.bold)
@@ -71,26 +46,26 @@ struct LoginView: View {
                         }
                         
                         Toggle(isOn: $checked) {
-                            Text("Acepto los")
-                                .font(.footnote)
-                                .fontWeight(.regular)
-                            Button {} label: {
-                                Text("términos y condiciones")
-                                    .underline()
+                            HStack(spacing: 5) {
+                                Text("Acepto los")
                                     .font(.footnote)
-                                    .fontWeight(.bold)
+                                    .fontWeight(.regular)
+                                Link("términos y condiciones", destination: URL(string: "https://www.theappmaster.com/")!)
                                     .foregroundColor(Color.black)
+                                    .font(.footnote, weight: .bold)
                             }
                         }
                         .toggleStyle(CheckboxToggleStyle())
-                        
-                        
                         .padding(.top)
                     }
                     .padding()
                     
                     Button(action: {
-                        userAuth.signIn()
+                        if checked {
+                            userAuth.signIn()
+                        } else {
+                            alertLogin = .tyc
+                        }
                     }) {
                         Text("Siguiente")
                             .font(.subheadline)
@@ -102,11 +77,9 @@ struct LoginView: View {
                             .clipShape(Capsule())
                     }
                     .padding(.bottom)
-//                    SiguienteButton()
-//                        .padding(.bottom)
                     
                     
-                    CreateAccount()
+                    CreateAccount(showSignUp: $showSignUp, showLoginView: $showLoginView)
                 }
             }
             .padding()
@@ -114,16 +87,40 @@ struct LoginView: View {
             .background(Color.white)
             .border(Color.gray.opacity(0.3))
             
-            if userAuth.isSignedIn {
+            if userAuth.isSignedIn && !userAuth.cambiarContrasena {
                 LoggedInView()
+            } else if userAuth.isSignedIn && userAuth.cambiarContrasena {
+                ConfirmSignUpView(userAuth: LoginViewModel(), showSignUp: $showSignUp, showLoginView: $showLoginView)
             }
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
         .background(.ultraThinMaterial)
+        
+        .alert(item: $alertLogin) { type in
+            switch type {
+            case .tyc:
+                return Alert(title: Text(""), message: Text("Debe aceptar los términos y condiciones"), dismissButton: .default(Text("OK")))
+            case .errorLogin:
+                return Alert(title: Text(""), message: Text(userAuth.error), dismissButton: .default(Text("OK")))
+            }
+        }
+//        .alert(isPresented: $userAuth.hasError) {
+//            Alert(title: Text(""), message: Text(userAuth.error), dismissButton: .default(Text("OK")))
+//        }
     }
 }
+
+enum AlertLogin: Identifiable {
+    case tyc, errorLogin
+    var id: Int {
+        hashValue
+    }
+}
+
+//    .alert(isPresented: $alertTyC) {
+//        Alert(title: Text(""), message: Text("Debe aceptar los términos y condiciones"), dismissButton: .default(Text("OK")))
+//        }
 
 
 struct TitleLogin: View {
@@ -159,12 +156,21 @@ struct HeaderLogin: View {
 
 
 struct CreateAccount: View {
+    
+    @Binding var showSignUp: Bool
+    @Binding var showLoginView: Bool
+    
     var body: some View {
         HStack(spacing: 5) {
             Text("No tienes una cuenta?")
                 .font(.footnote)
                 .fontWeight(.regular)
-            Button {} label: {
+            Button {
+                withAnimation {
+                    showSignUp.toggle()
+                    showLoginView.toggle()
+                }
+            } label: {
                 Text("Click aquí")
                     .font(.footnote)
                     .fontWeight(.bold)
@@ -175,34 +181,8 @@ struct CreateAccount: View {
 }
 
 
-struct CheckboxToggleStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        return HStack {
-            //            Spacer()
-            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                .resizable()
-                .frame(width: 20, height: 20)
-                .onTapGesture { configuration.isOn.toggle() }
-            configuration.label
-            
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView(userAuth: LoginViewModel(), showLoginView: .constant(false), showForgotPassword: .constant(false), showSignUp: .constant(false))
     }
 }
-
-
-extension View {
-    func hideKeyboardWhenTappedAround() -> some View  {
-        return self.onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                            to: nil, from: nil, for: nil)
-        }
-    }
-}
-
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginView(showLoginView: $showLoginView, userAuth: LoginViewModel)
-//    }
-//}

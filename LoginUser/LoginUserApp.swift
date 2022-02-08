@@ -11,7 +11,7 @@ import SwiftUI
 struct LoginUserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(showLoginView: Bool(false))
+            ContentView(showLoginView: Bool(false), showForgotPassword: Bool(false), showSignUp: Bool(false))
         }
     }
 }

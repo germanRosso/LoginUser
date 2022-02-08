@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE20714227A9ADF400EF5331 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20714127A9ADF400EF5331 /* SignUpView.swift */; };
+		DE20714527A9E62D00EF5331 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = DE20714427A9E62D00EF5331 /* SwiftUIX */; };
+		DEA596AF27B2848600FE2088 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA596AE27B2848600FE2088 /* ReusableTextField.swift */; };
+		DEA596B127B2862900FE2088 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA596B027B2862900FE2088 /* CheckboxToggleStyle.swift */; };
 		DEADB1E027A32F8E00A59952 /* LoginUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1DF27A32F8E00A59952 /* LoginUserApp.swift */; };
 		DEADB1E227A32F8E00A59952 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1E127A32F8E00A59952 /* ContentView.swift */; };
 		DEADB1E427A32FA800A59952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEADB1E327A32FA800A59952 /* Assets.xcassets */; };
@@ -17,9 +21,14 @@
 		DEADB1F427A330C400A59952 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB1F327A330C400A59952 /* LoginViewModel.swift */; };
 		DEADB1FB27A41F9300A59952 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DEADB1FA27A41F9300A59952 /* Alamofire */; };
 		DEADB1FE27A41FC300A59952 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DEADB1FD27A41FC300A59952 /* SwiftyJSON */; };
+		DEAF3CC927AAFB460044EDA7 /* ConfirmSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF3CC827AAFB460044EDA7 /* ConfirmSignUpView.swift */; };
+		DEFC65C627A972F500F245BF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC65C527A972F500F245BF /* ForgotPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE20714127A9ADF400EF5331 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DEA596AE27B2848600FE2088 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
+		DEA596B027B2862900FE2088 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		DEADB1DC27A32F8D00A59952 /* LoginUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEADB1DF27A32F8E00A59952 /* LoginUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserApp.swift; sourceTree = "<group>"; };
 		DEADB1E127A32F8E00A59952 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,6 +39,8 @@
 		DEADB1F127A330BC00A59952 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		DEADB1F327A330C400A59952 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DEADB1F827A33F0500A59952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DEAF3CC827AAFB460044EDA7 /* ConfirmSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSignUpView.swift; sourceTree = "<group>"; };
+		DEFC65C527A972F500F245BF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE20714527A9E62D00EF5331 /* SwiftUIX in Frameworks */,
 				DEADB1FE27A41FC300A59952 /* SwiftyJSON in Frameworks */,
 				DEADB1FB27A41F9300A59952 /* Alamofire in Frameworks */,
 			);
@@ -89,6 +101,11 @@
 			children = (
 				DEADB1ED27A330A400A59952 /* LoginView.swift */,
 				DEADB1EF27A330AF00A59952 /* LoggedInView.swift */,
+				DEFC65C527A972F500F245BF /* ForgotPasswordView.swift */,
+				DE20714127A9ADF400EF5331 /* SignUpView.swift */,
+				DEAF3CC827AAFB460044EDA7 /* ConfirmSignUpView.swift */,
+				DEA596AE27B2848600FE2088 /* ReusableTextField.swift */,
+				DEA596B027B2862900FE2088 /* CheckboxToggleStyle.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +145,7 @@
 			packageProductDependencies = (
 				DEADB1FA27A41F9300A59952 /* Alamofire */,
 				DEADB1FD27A41FC300A59952 /* SwiftyJSON */,
+				DE20714427A9E62D00EF5331 /* SwiftUIX */,
 			);
 			productName = LoginUser;
 			productReference = DEADB1DC27A32F8D00A59952 /* LoginUser.app */;
@@ -160,6 +178,7 @@
 			packageReferences = (
 				DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DEADB1FC27A41FC300A59952 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				DE20714327A9E62D00EF5331 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = DEADB1DD27A32F8D00A59952 /* Products */;
 			projectDirPath = "";
@@ -188,9 +207,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEADB1F227A330BC00A59952 /* LoginModel.swift in Sources */,
+				DEFC65C627A972F500F245BF /* ForgotPasswordView.swift in Sources */,
+				DEA596AF27B2848600FE2088 /* ReusableTextField.swift in Sources */,
+				DEA596B127B2862900FE2088 /* CheckboxToggleStyle.swift in Sources */,
 				DEADB1EE27A330A400A59952 /* LoginView.swift in Sources */,
 				DEADB1F427A330C400A59952 /* LoginViewModel.swift in Sources */,
+				DE20714227A9ADF400EF5331 /* SignUpView.swift in Sources */,
 				DEADB1F027A330AF00A59952 /* LoggedInView.swift in Sources */,
+				DEAF3CC927AAFB460044EDA7 /* ConfirmSignUpView.swift in Sources */,
 				DEADB1E227A32F8E00A59952 /* ContentView.swift in Sources */,
 				DEADB1E027A32F8E00A59952 /* LoginUserApp.swift in Sources */,
 			);
@@ -397,6 +421,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DE20714327A9E62D00EF5331 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -416,6 +448,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DE20714427A9E62D00EF5331 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE20714327A9E62D00EF5331 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
 		DEADB1FA27A41F9300A59952 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DEADB1F927A41F9300A59952 /* XCRemoteSwiftPackageReference "Alamofire" */;

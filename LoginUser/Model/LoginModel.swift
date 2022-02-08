@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct DataUser: Codable {
-    let usuario: [usuarioData]
+struct AuthData: Codable {
+    let usuario: [UserData]
     let codigo: Int
     let mensaje: String
     enum CodingKeys: String, CodingKey {
@@ -18,7 +18,7 @@ struct DataUser: Codable {
     }
 }
 
-struct usuarioData: Codable, Identifiable {
+struct UserData: Codable, Identifiable {
     let id: Int
     let idClearSky: Int
     let nombre: String
